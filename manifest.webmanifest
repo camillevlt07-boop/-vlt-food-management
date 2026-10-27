@@ -1,0 +1,15 @@
+{
+  "name": "VLT Food Management",
+  "short_name": "VLT Food",
+  "description": "La gestion intelligente de vos métiers de bouche",
+  "lang": "fr-FR",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#f2f5f8",
+  "theme_color": "#101827",
+  "icons": [
+    {"src":"assets/vlt-icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}
+  ]
+}
