@@ -2463,7 +2463,7 @@ if ('serviceWorker' in navigator && /^https?:$/.test(location.protocol)) {
    const check=validateLocalSnapshot(local);
    const active=check.active;
    const payload={localStorage:local,source:'VLT Food Management V1.41',savedAt:new Date().toISOString(),validation:{sections:check.sections,items:check.items},excludedLocalKeys:snapshot.excludedKeys};
-    await request('/rest/v1/rpc/vlt_save_establishment_data', {   method: 'POST',   headers: { Authorization: 'Bearer ' + token() },   body: JSON.stringify({     p_establishment_id: String(active),     p_data: payload   }) });,'Prefer':'resolution=merge-duplicates,return=minimal'},body:JSON.stringify({establishment_id:String(active),data:payload,updated_by:session.user.id,updated_at:new Date().toISOString()})});
+    await request('/rest/v1/rpc/vlt_save_establishment_data',{method:'POST',headers:{Authorization:'Bearer '+token()},body:JSON.stringify({p_establishment_id:String(active),p_data:payload})}); },   body: JSON.stringify({     p_establishment_id: String(active),     p_data: payload   }) });,'Prefer':'resolution=merge-duplicates,return=minimal'},body:JSON.stringify({establishment_id:String(active),data:payload,updated_by:session.user.id,updated_at:new Date().toISOString()})});
    say('Envoi terminé pour l’établissement '+active+'. '+check.sections+' sections métier, '+check.items+' éléments. '+snapshot.excludedKeys.length+' clé(s) locales non identifiées comme propres à cet établissement ont été exclues pour éviter de mélanger les données. Vérifie les fonctions secondaires avant utilisation réelle.');
  }
  async function download(){
